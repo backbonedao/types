@@ -1,0 +1,10 @@
+{
+  "name": "@backbonedao/types",
+  "version": "1.0.0",
+  "description": "Typescript types for interfacing with Backbone container APIs",
+  "main": "index.ts",
+  "license": "GNU",
+  "devDependencies": {
+    "@types/node": "^18.11.9"
+  }
+}
