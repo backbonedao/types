@@ -12,13 +12,21 @@ export type Backbone = {
   _removeAddress: Function;
 };
 
+export type API = {
+  [key: string]: (params: any) => Promise<string>;
+  get: (key: string) => Promise<string>;
+  getAll: () => Promise<string>;
+  query: (params: Query) => Promise<string>;
+  put: (params: { key: string; value: any }) => Promise<string>;
+  onAdd: (callback: Function) => Promise<string>;
+};
+
 export type App = {
-  [key: string]: any;
   meta: Meta;
   network: Network;
   users: Users;
   _: { on: Function; listenLog: Function };
-};
+} & API;
 
 export type Events = {
   on: (event: string, callback: Function) => any;
@@ -32,16 +40,7 @@ export type Id = {
   }) => Promise<boolean>;
   authenticate: () => Promise<boolean>;
   isAuthenticated: () => Promise<boolean>;
-  registerApp: (manifest: {
-    address: string;
-    name: string;
-    version: string;
-    permissions: any[];
-    "@id": string;
-    description?: string;
-    website?: string;
-    git?: string;
-  }) => Promise<boolean>;
+  registerApp: (manifest: Manifest) => Promise<boolean>;
   signObject: (params: { hash: string }) => Promise<{ signature: Buffer }>;
   getId: () => Promise<string>;
 };
@@ -55,14 +54,15 @@ export type Meta = {
 };
 
 export type Manifest = {
+  [key: string]: any;
   "@id": string;
   address: string;
-  description: string;
-  git: string;
-  name: string;
   permissions: any[];
   version: string;
-  website: string;
+  name: string;
+  description?: string;
+  git?: string;
+  website?: string;
 };
 
 export type Network = {
@@ -109,4 +109,15 @@ export type Users = {
     partition: any;
     destroy?: boolean;
   }) => boolean;
+};
+
+export type Query = {
+  gt?: string;
+  gte?: string;
+  lt?: string;
+  lte?: string;
+  limit?: number;
+  stream?: boolean;
+  reverse?: boolean;
+  include_meta?: boolean;
 };

@@ -1,9 +1,22 @@
 {
   "name": "@backbonedao/types",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "Typescript types for interfacing with Backbone container APIs",
   "main": "index.ts",
-  "license": "GNU",
+  "homepage": "https://backbone.build",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/backbonedao/types.git"
+  },
+  "bugs": {
+    "url": "https://github.com/backbonedao/types/issues"
+  },
+  "keywords": [
+    "typescript",
+    "types",
+    "backbone"
+  ],
+  "license": "AGPL-3.0-or-later",
   "devDependencies": {
     "@types/node": "^18.11.9"
   }
