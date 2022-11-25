@@ -1,6 +1,6 @@
 {
   "name": "@backbonedao/types",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Typescript types for interfacing with Backbone container APIs",
   "main": "index.ts",
   "homepage": "https://backbone.build",

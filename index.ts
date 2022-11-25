@@ -13,12 +13,12 @@ export type Backbone = {
 };
 
 export type API = {
-  [key: string]: (params: any) => Promise<string>;
-  get: (key: string) => Promise<string>;
-  getAll: () => Promise<string>;
-  query: (params: Query) => Promise<string>;
-  put: (params: { key: string; value: any }) => Promise<string>;
-  onAdd: (callback: Function) => Promise<string>;
+  [key: string]: (...params: any[]) => Promise<any>;
+  get: (key: string) => Promise<any>;
+  getAll: () => Promise<Array<{ value: any; key: string; i: number }>>;
+  query: (params: Query) => Promise<any>;
+  put: (params: { key: string; value: any }) => Promise<any>;
+  onAdd: (callback: Function) => Promise<any>;
 };
 
 export type App = {
